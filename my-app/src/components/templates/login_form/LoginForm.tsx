@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import './LoginForm.css'
 import '../../styles/CommonStyles.css'
+import { Link } from 'react-router-dom';
+import { register } from '../../../API/fetch_functions';
+import { registerResponse } from '../../../API/fetch_functions';
 
 const LoginForm = () => {
     const [email, setEmail ] = useState<string>('');
@@ -36,8 +39,17 @@ const LoginForm = () => {
 
     const onSubmit = (event: React.SyntheticEvent) => {
         handlePasswordCheck(event);
-        name && email && password && passwordCheck ? 
-            console.log(password) : console.log('fail')
+        (name && email && password && passwordCheck) ? onSuccessfulSubmit(register)
+            : console.log('fail')
+    }
+
+    const onSuccessfulSubmit = async (func: (info: any) => Promise<any>)  => {
+        let response = await func({
+                UserName: name,
+                email: email,
+                password: password})
+        localStorage.setItem('authToken', response.authToken)
+        console.log(localStorage.getItem('authToken'));
     }
 
     useEffect(() => {
@@ -59,7 +71,7 @@ const LoginForm = () => {
              : <h6>Пароли не совпадают</h6>}
             <input type='submit' className='AuthForm__submit commonMargin commonSubmit'/>
             </form>
-            <h6>Войти</h6>
+            <Link to="/">Войти</Link>
         </section>
     )
 }

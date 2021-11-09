@@ -1,6 +1,8 @@
-import React, {  useState } from 'react';
+import React, { useState } from 'react';
 import './AuthForm.css';
 import '../../styles/CommonStyles.css';
+import { Link } from 'react-router-dom';
+import { authorize, getInfo } from '../../../API/fetch_functions';
 
 const AuthForm = () => {
 
@@ -24,11 +26,14 @@ const AuthForm = () => {
         event.preventDefault();
         setMemorised(!memorised)
     }
-    const onSubmit = (event: React.SyntheticEvent) => {
+    const onSubmit = async (event: React.SyntheticEvent) => {
         event?.preventDefault()
-        console.log(email);
-        console.log(password)
-        console.log(memorised)
+        let response: any = await authorize({
+            email: email,
+            password: password
+        })
+        localStorage.setItem('authToken', response.authToken)
+        console.log(localStorage.getItem('authToken'));
     }
 
 
@@ -43,11 +48,11 @@ const AuthForm = () => {
                     <label>
                     <input type='checkbox' checked={memorised} onChange={handleCheck}/> Запомнить меня
                     </label>
-                    <a>Забыли пароль?</a>
+                    <h5 onClick={getInfo}>Забыли пароль?</h5>
                 </section>
                 <input type='submit' className='AuthForm__submit commonMargin commonSubmit'/>
             </form>
-            <h6 className='AuthFrom_loginlink'>Зарегистрироваться</h6>
+            <Link to='/login'>Зарегистрироваться</Link>
         </section>
     )
 }
