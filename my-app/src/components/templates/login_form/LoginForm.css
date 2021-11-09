@@ -1,0 +1,19 @@
+.LoginForm__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    width: 98vw;
+
+    margin: 10px auto;
+
+    background-color: white;
+}
+
+.LoginForm__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 70%;
+    margin: 0 auto;
+}

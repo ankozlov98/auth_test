@@ -1,0 +1,39 @@
+.commonMargin {
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.heading1 {
+    font-size: 24px;
+}
+
+.commonInputDesign {
+    width: 70vw;
+    outline: none;
+    background-color: white;
+    border: none;
+    border-bottom: 1px black solid;
+    justify-self: center;
+}
+
+.commonInputDesign:focus {
+    outline: none;
+    border-bottom: 1px aqua solid;
+}
+
+.commonSubmit {
+    background-color: rgb(0, 157, 255);
+    width: 50vw;
+    border: none;
+    height: 30px;
+}
+
+@media (min-width: 800px) {
+    .commonInputDesign {
+        width: 600px;
+}
+    .commonSubmit {
+        width: 400px;
+    }
+}
