@@ -46,9 +46,9 @@ const AuthForm = () => {
                 <input type='password' className='commonMargin commonInputDesign' onChange={handlePasswordChange} placeholder='Пароль'/>
                 <section className='AuthForm__options commonMargin' >
                     <label>
-                    <input type='checkbox' checked={memorised} onChange={handleCheck}/> Запомнить меня
+                    <input type='checkbox' checked={memorised} onChange={handleCheck} className="ML0 arginRight"/> Запомнить меня
                     </label>
-                    <h5 onClick={getInfo}>Забыли пароль?</h5>
+                    <h5 onClick={getInfo} className="MR0 MarginLeft">Забыли пароль?</h5>
                 </section>
                 <input type='submit' className='AuthForm__submit commonMargin commonSubmit'/>
             </form>

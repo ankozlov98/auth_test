@@ -8,6 +8,7 @@
     margin: 50px auto;
 
     background-color: white;
+    padding-bottom: 20px;
 }
 
 .AuthForm__form {
@@ -21,6 +22,24 @@
 .AuthForm__options {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+}
+
+
+
+.MR0 {
+    margin-right: 0;
+}
+
+.ML0{
+    margin-left: 0;
+}
+
+.MarginLeft {
+    margin-left: 50px;
+}
+.MarginRight {
+    margin-right: 50px;
 }
 
 @media (max-width: 780px) {
@@ -30,5 +49,20 @@
 
     .AuthForm__form {
         width: 90%;
+    }
+}
+
+
+@media (max-width: 520px) {
+    .AuthForm__container {
+        width: 80vw;
+    }
+
+    .AuthForm__form {
+        width: 90%;
+    }
+
+    .commonInputDesign {
+        width: 90vw
     }
 }
