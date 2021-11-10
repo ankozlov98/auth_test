@@ -48,8 +48,7 @@ const LoginForm = () => {
                 UserName: name,
                 email: email,
                 password: password})
-        localStorage.setItem('authToken', response.authToken)
-        console.log(localStorage.getItem('authToken'));
+        localStorage.setItem('authToken', response.authToken);
     }
 
     useEffect(() => {
@@ -62,16 +61,20 @@ const LoginForm = () => {
         <section className='LoginForm__container'>
             <h1>Зарегистрироваться</h1>
             <form className='LoginForm__form' onSubmit={onSubmit}>
-            <input type='text' className='commonMargin commonInputDesign' onChange={handleNameChange}/>
-            <input type='text' className='commonMargin commonInputDesign' onChange={handleEmailChange}/>
-            <input type='password' className='commonMargin commonInputDesign' onChange={handlePasswordChange}/>
-            <input type='password' className='commonMargin commonInputDesign' onChange={handlePasswordRepeatChange}/>
+            <input type='text' className='commonMargin commonInputDesign' onChange={handleNameChange} placeholder='Имя'/>
+            <input type='text' className='commonMargin commonInputDesign' onChange={handleEmailChange} placeholder='Email'/>
+            <input type='password' className='commonMargin commonInputDesign' onChange={handlePasswordChange} placeholder='Пароль'/>
+            <input type='password' className='commonMargin commonInputDesign' onChange={handlePasswordRepeatChange} placeholder='Повторите пароль'/>
             {passwordCheck ?  
                 <h6>Пароли совпадают</h6>
              : <h6>Пароли не совпадают</h6>}
             <input type='submit' className='AuthForm__submit commonMargin commonSubmit'/>
             </form>
-            <Link to="/">Войти</Link>
+            <h6 className='commonMargin'>
+                <Link to="/">
+                Войти
+                </Link>
+            </h6>
         </section>
     )
 }

@@ -42,8 +42,8 @@ const AuthForm = () => {
         <section className='AuthForm__container'>
             <h1 className='heading1'>Войти</h1>
             <form className={'AuthForm__form'} onSubmit={onSubmit} >
-                <input type='text' className='commonMargin commonInputDesign' onChange={handleEmailChange}/>
-                <input type='password' className='commonMargin commonInputDesign' onChange={handlePasswordChange}/>
+                <input type='text' className='commonMargin commonInputDesign' onChange={handleEmailChange} placeholder='Email'/>
+                <input type='password' className='commonMargin commonInputDesign' onChange={handlePasswordChange} placeholder='Пароль'/>
                 <section className='AuthForm__options commonMargin' >
                     <label>
                     <input type='checkbox' checked={memorised} onChange={handleCheck}/> Запомнить меня
