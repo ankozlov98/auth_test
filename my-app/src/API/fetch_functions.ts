@@ -15,7 +15,7 @@ export type registerResponse = {
     expiresIn: number
 }
 
-let token = localStorage.getItem('authToken') ? localStorage.getItem('authToken') : "pseudo"
+let token = localStorage.getItem('authToken') 
 
 
 export const register = (info: loginPackage) => {

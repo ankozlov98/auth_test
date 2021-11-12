@@ -10,11 +10,11 @@
 }
 
 .commonInputDesign {
-    width: 400px;
+    width: 370px;
     outline: none;
     background-color: white;
     border: none;
-    border-bottom: 1px black solid;
+    border-bottom: 1px gray solid;
     justify-self: center;
 }
 
@@ -28,13 +28,55 @@
     width: 400px;
     border: none;
     height: 30px;
+    border-radius: 3px;
+    color: white;
+    font-weight: 500;
 }
 
+.commonLink {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    color: black;
+    font-style: normal;
+    text-decoration: none;
+}
+
+.icon {
+    margin-left: -16px;
+    width: 16px;
+    height: 16px;
+    z-index: 2;
+    
+}
+
+.passwordInputContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+    
+}
+
+.passwordInput {
+    z-index: 1;
+}
 @media (min-width: 800px) {
     .commonInputDesign {
-        width: 350px;
+        width: 320px;
 }
     .commonSubmit {
-        width: 350px;
+        width: 320px;
     }
+
+    
+}
+
+@media (max-width: 500px) {
+    .commonInputDesign {
+        width: 250px;
+}
+    .commonSubmit {
+        width: 250px;
+    }
+
 }

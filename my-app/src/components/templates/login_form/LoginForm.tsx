@@ -4,6 +4,7 @@ import '../../styles/CommonStyles.css'
 import { Link } from 'react-router-dom';
 import { register } from '../../../API/fetch_functions';
 import { registerResponse } from '../../../API/fetch_functions';
+import { EyeInvisibleOutlined } from '@ant-design/icons';
 
 const LoginForm = () => {
     const [email, setEmail ] = useState<string>('');
@@ -11,6 +12,10 @@ const LoginForm = () => {
     const [password, setPassword] = useState<string>('');
     const [passwordRepeat, setPasswordRepeat] = useState<string>('')
     const [passwordCheck, setPasswordCheck] = useState<boolean>(false)
+    const [passwordState1, setPasswordState1] = useState<string>('password')
+    const [passwordState2, setPasswordState2] = useState<string>('password')
+
+
 
     const handleNameChange = (event: React.FormEvent<HTMLInputElement>) => {
         event.preventDefault();
@@ -51,6 +56,16 @@ const LoginForm = () => {
         localStorage.setItem('authToken', response.authToken);
     }
 
+    const toggleVisibilityFirst = (event: React.SyntheticEvent) => {
+        event.preventDefault();
+        passwordState1 === 'password' ? setPasswordState1('text') : setPasswordState1('password');
+    }
+
+    const toggleVisibilitySecond = (event: React.SyntheticEvent) => {
+        event.preventDefault();
+        passwordState2 === 'password' ? setPasswordState2('text') : setPasswordState2('password');
+    }
+
     useEffect(() => {
         passwordRepeat === password ?
             setPasswordCheck(true) : setPasswordCheck(false)
@@ -59,22 +74,26 @@ const LoginForm = () => {
 
     return (
         <section className='LoginForm__container'>
-            <h1>Зарегистрироваться</h1>
+            <h1 className='LoginForm__heading1'>Зарегистрироваться</h1>
             <form className='LoginForm__form' onSubmit={onSubmit}>
             <input type='text' className='commonMargin commonInputDesign' onChange={handleNameChange} placeholder='Имя'/>
             <input type='text' className='commonMargin commonInputDesign' onChange={handleEmailChange} placeholder='Email'/>
-            <input type='password' className='commonMargin commonInputDesign' onChange={handlePasswordChange} placeholder='Пароль'/>
-            <input type='password' className='commonMargin commonInputDesign' onChange={handlePasswordRepeatChange} placeholder='Повторите пароль'/>
+            <div className="passwordInput">
+                <input type='password' className='commonMargin commonInputDesign' onChange={handlePasswordChange} placeholder='Пароль'/>
+                <EyeInvisibleOutlined className="icon" onClick={toggleVisibilityFirst}/>
+            </div>
+            <div className="passwordInput">
+                <input type='password' className='commonMargin commonInputDesign' onChange={handlePasswordRepeatChange} placeholder='Повторите пароль'/>
+                <EyeInvisibleOutlined className="icon" onClick={toggleVisibilitySecond}/>
+            </div>
             {passwordCheck ?  
                 <h6>Пароли совпадают</h6>
              : <h6>Пароли не совпадают</h6>}
             <input type='submit' className='AuthForm__submit commonMargin commonSubmit'/>
             </form>
-            <h6 className='commonMargin'>
-                <Link to="/">
+                <Link to="/" className="commonLink">
                 Войти
                 </Link>
-            </h6>
         </section>
     )
 }

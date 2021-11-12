@@ -3,10 +3,12 @@
     flex-direction: column;
     justify-content: center;
 
-    width: 98vw;
+    width: 100vw;
+    height: 100vh;
 
-    margin: 10px auto;
+    border-top: 10px solid aquamarine;
 
+    
     background-color: white;
 }
 
@@ -14,6 +16,11 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 70%;
+    width: 88%;
     margin: 0 auto;
+}
+
+.LoginForm__heading1 {
+    margin-top: 80px;
+    margin-bottom: 80px;
 }
